@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/KeepSafe/android-resource-remover.svg?branch=master)](https://travis-ci.org/KeepSafe/android-resource-remover)
 
+![resource-remover](https://keepsafe.github.io/i/proj/opensource_resource-remover.png)
 android-resource-remover
 ========================
 
@@ -31,7 +32,7 @@ Android resources have dependencies to each other. This means that after running
 
 e.g.
 
-    ./gradlew clean build :lint && android-resource-remover --xml build/lint-results.xml
+    ./gradlew clean build :lint && android-resource-remover --xml build/outputs/lint-results.xml
 
 
 ### Options
@@ -59,16 +60,22 @@ Ignore layout directory
 
 ## Expected behavior
 ### Resource ID in code not found
+
 If you have references to elements in an old layout that you're not using anymore, you will get a compile error that the ID (`R.id.<something>`) can not be found. The reason is that the resource file that contained `R.id.<something>` has been removed as it was not used any more. Time to clean up your code.
 
 ## FAQ
-**Q:  installing dependency lxml failed** with `clang: error: unknown argument: '-mno-fused-madd' [-Wunused-command-line-argument-hard-error-in-future]`
+
+**Q:  installing dependency lxml failed** with `clang: error: unknown argument: '-mno-fused-madd' [-Wunused-command-line-argument-hard-error-in-future]`  
 *A: [http://stackoverflow.com/a/22322645](http://stackoverflow.com/a/22322645)*
 
-## Release History
-* 2014-09-11   v0.1.1   Fixes bugs
-* 2014-02-14   v0.1.0   Initial release
+**Q:  installing dependency lxml failed** with `fatal error: 'libxml/xmlversion.h' file not found`  
+*A: There are several ways to fix this listed on stackoverflow  [http://stackoverflow.com/questions/19548011/cannot-install-lxml-on-mac-os-x-10-9](http://stackoverflow.com/questions/19548011/cannot-install-lxml-on-mac-os-x-10-9)*
+
+## Issues and PR
+
+When opening an issue please include as much info as possible. pip.log, python varsion/info, os version/info might all be help us understanding what's the problem.
+
+In PR please keep the formatting.
 
 ## Licence
 Apache version 2.0
-
